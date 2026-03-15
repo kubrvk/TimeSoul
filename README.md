@@ -3,7 +3,7 @@
 > **Souls-like action platformer** — Unreal Engine 5.1 · C++ · Solo Development  
 > [Steam Page](https://store.steampowered.com/app/2928270/TIME_SOUL) · [ArtStation](https://www.artstation.com/kubrik)
 
----
+![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/7892565cfcc766ed30ac1692a887a7e3f544b703/library_header.jpg?t=1731513472)
 
 ## Overview
 
@@ -22,7 +22,6 @@ The game ships on PC (Windows/Linux) via Steam. The core design challenge was in
 | Scripting / Prototyping | Unreal Blueprint (visual scaffolding only) |
 | Rendering | Lumen (GI), Nanite (static meshes), custom post-process materials |
 | Physics | Chaos Physics — used for gravity manipulation, climbing normals, hook swing |
-| Networking | Steam Online Subsystem (co-op, lobby, session management) |
 | Platform | PC (Win64/Linux), Steam SDK |
 | 3D Pipeline | ZBrush → Maya → Substance Painter → UE5 |
 | Shader Authoring | UE Material Editor + HLSL custom nodes |
@@ -89,6 +88,7 @@ The central design pillar of TIME SOUL is treating time as the universal resourc
 ---
 
 ### 2. Procedural World Generation
+![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5e5adf2391616e017a65df159088f682db3acefd.800x600.jpg)
 
 Worlds and platforms are generated using a seeded procedural system.
 
@@ -156,6 +156,7 @@ void UMovementExtensionComponent::TickComponent(float DeltaTime, ...)
 ---
 
 ### 4. Combat System
+![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_9c2181850a7147b47d3e10dfa693be97a084799b.800x600.jpg)
 
 Combat is built on a dual-mode framework: **Melee (right-hand)** and **Ranged (left-hand)**, switchable in real-time. Up to 6 weapons total are equippable (3 per mode). The combat system uses a `UCombatComponent` managing attack chains, cooldowns, hit detection, and stagger state.
 
@@ -207,6 +208,7 @@ void UCombatComponent::ApplyStagger(float StaggerAmount)
 ---
 
 ### 5. RPG Stat & Leveling System
+![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5da280e17d293d889b79b6b18ec71fd02b549018.800x600.jpg)
 
 Stats are structured around 9 primary attributes modeled after a classic ARPG framework:
 
@@ -275,19 +277,8 @@ Each boss (`ABossCharacter`) has:
 
 ---
 
-### 9. Networking / Co-op
 
-Co-op multiplayer is implemented using the **Steam Online Subsystem** with a listen-server model.
-
-- Session creation, discovery, and join flow handled via `UOnlineSessionClient` and custom `USessionManagerComponent`.
-- Gameplay state (time, clocks, boss health) is replicated via `ATimeSoulGameState`.
-- Player-specific state (equipment, stats, inventory) replicated on the owning `APawn`.
-- Movement replication uses UE's built-in `UCharacterMovementComponent` replication with custom `FSavedMove` extensions for parkour state flags (bIsGliding, bIsWallRunning, etc.).
-- Clock pickups and world loot are server-authoritative; clients request pickups through RPCs with server validation.
-
----
-
-### 10. Save System
+### 9. Save System
 
 - Full game state serialized via `USaveGame` subclass.
 - Saved data: player stats, equipment loadout, inventory, collected clocks, world seed, elapsed time, active clockwork checkpoint.
@@ -296,7 +287,7 @@ Co-op multiplayer is implemented using the **Steam Online Subsystem** with a lis
 
 ---
 
-### 11. Character Customization
+### 10. Character Customization
 
 - Morphtarget-driven face/body customization system.
 - Character mesh is a modular assembly: head, body, hair, and makeup layers are separate skeletal mesh components sharing a master pose.
@@ -305,7 +296,7 @@ Co-op multiplayer is implemented using the **Steam Online Subsystem** with a lis
 
 ---
 
-### 12. Clock HUD Architecture
+### 11. Clock HUD Architecture
 
 The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 
@@ -348,7 +339,6 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 ## Build & Platform Notes
 
 - Developed and shipped on UE 5.1. Not upgraded to later engine versions to preserve stability of shipped systems.
-- Steam integration requires `OnlineSubsystemSteam` plugin enabled and `steam_appid.txt` in project root during development builds.
 - Linux shipping tested via cross-compilation toolchain; physics and movement behavior verified consistent cross-platform.
 - Mobile builds (iOS/Android) not in scope for this title; see [Royal Jump](https://play.google.com/store/apps/details?id=com.Kubrick.RoyalJump) for mobile-specific UE development.
 
@@ -369,11 +359,11 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 ## Developer
 
 **Kubrik** — Developer & 3D Artist  
-9 years web development · 7 years 3D modeling · 5 years Unreal Engine C++  
-5 shipped commercial games as sole developer.
 
-[Steam](https://store.steampowered.com/search/?developer=Kubrik) · [ArtStation](https://www.artstation.com/kubrik) · [itch.io](https://kubrik.itch.io)
+[Steam](https://store.steampowered.com/search/?developer=Kubrik) · [ArtStation](https://www.artstation.com/kubrik) 
+
+![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/a4b24ed070a65a05539b1a91aace24df50169210/library_hero.jpg?t=1731513472)
 
 ---
 
-*All code, art, design, and marketing assets produced by a single developer. No third-party gameplay code or purchased asset packs used in core systems.*
+*All code, design, and custom assets produced by a single developer. No third-party gameplay code used in core systems.*
