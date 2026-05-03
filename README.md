@@ -61,7 +61,9 @@ TimeSoul/
 
 ## Core Systems:
 
-### 1. Time Resource System
+### 1. Time Resource System:
+
+![image](https://github.com/kubrvk/TimeSoul/blob/main/Content/TimeSoul/Textures/ScreenShot/timesoul_base.mov_snapshot_01.25_%5B2024.10.23_18.25.31%5D.jpg)
 
 The central design pillar of TIME SOUL is treating time as the universal resource , replacing conventional health/mana bars. This is implemented via a global `UTimeManagerComponent`.
 
@@ -89,7 +91,7 @@ The central design pillar of TIME SOUL is treating time as the universal resourc
 
 ---
 
-### 2. Procedural World Generation
+### 2. Procedural World Generation:
 ![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5e5adf2391616e017a65df159088f682db3acefd.800x600.jpg)
 
 Worlds and platforms are generated using a seeded procedural system.
@@ -119,7 +121,9 @@ void APlanetGenerator::GeneratePlatforms(int32 Seed)
 
 ---
 
-### 3. Movement Extension System
+### 3. Movement Extension System:
+
+![image](https://github.com/kubrvk/TimeSoul/blob/main/Content/TimeSoul/Textures/ScreenShot/timesoul_base.mov_snapshot_02.32_%5B2024.10.22_12.33.12%5D.jpg)
 
 Parkour movement is implemented as a `UMovementExtensionComponent` extending `UCharacterMovementComponent`. Each traversal ability is a discrete state with entry/exit conditions and stamina/time cost checks.
 
@@ -234,7 +238,7 @@ Stats are structured around 9 primary attributes modeled after a classic ARPG fr
 
 ---
 
-### 6. Equipment System
+### 6. Equipment System:
 
 ```
 Tools       → Up to 10 equippable active items
@@ -254,7 +258,7 @@ Pouch       → Secondary slot for tool quick-access
 
 ---
 
-### 7. Boss AI System
+### 7. Boss AI System:
 
 Boss behaviors are implemented as hierarchical state machines using Unreal's Behavior Tree system, extended with custom `UBTTask` and `UBTDecorator` nodes in C++.
 
@@ -266,7 +270,7 @@ Each boss (`ABossCharacter`) has:
 
 ---
 
-### 8. Damage & Defense Model
+### 8. Damage & Defense Model:
 
 **Three damage types:**
 - `Physical` , reduced by armor percentage
@@ -284,7 +288,7 @@ Each boss (`ABossCharacter`) has:
 ---
 
 
-### 9. Save System
+### 9. Save System:
 
 - Full game state serialized via `USaveGame` subclass.
 - Saved data: player stats, equipment loadout, inventory, collected clocks, world seed, elapsed time, active clockwork checkpoint.
@@ -293,7 +297,9 @@ Each boss (`ABossCharacter`) has:
 
 ---
 
-### 10. Character Customization
+### 10. Character Customization:
+
+![image](https://github.com/kubrvk/TimeSoul/blob/main/Content/TimeSoul/Textures/ScreenShot/timesoul_base.mov_snapshot_00.31_%5B2024.10.22_12.25.54%5D.jpg)
 
 - Morphtarget-driven face/body customization system.
 - Character mesh is a modular assembly: head, body, hair, and makeup layers are separate skeletal mesh components sharing a master pose.
@@ -302,7 +308,9 @@ Each boss (`ABossCharacter`) has:
 
 ---
 
-### 11. Clock HUD Architecture
+### 11. Clock HUD Architecture:
+
+![image](https://github.com/kubrvk/TimeSoul/blob/main/Content/TimeSoul/Textures/ScreenShot/timesoul_base.mov_snapshot_01.35_%5B2024.10.23_18.24.48%5D.jpg)
 
 The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 
@@ -313,7 +321,7 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 
 ---
 
-## Performance Targets & Optimization
+## Performance Targets & Optimization:
 
 | Target | Approach |
 |---|---|
@@ -326,7 +334,7 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 
 ---
 
-## Development Scope
+## Development:
 
 | Category | Detail |
 |---|---|
