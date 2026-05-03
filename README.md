@@ -210,7 +210,9 @@ void UCombatComponent::ApplyStagger(float StaggerAmount)
 ---
 
 ### 5. RPG Stat & Leveling System
-![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5da280e17d293d889b79b6b18ec71fd02b549018.800x600.jpg)
+
+![image](https://github.com/kubrvk/TimeSoul/blob/main/Content/TimeSoul/Textures/ScreenShot/timesoul_base.mov_snapshot_01.02_%5B2024.10.22_12.26.51%5D.jpg)
+
 
 Stats are structured around 9 primary attributes modeled after a classic ARPG framework:
 
@@ -247,6 +249,8 @@ Pouch       → Secondary slot for tool quick-access
 - All equipment is defined via `UItemDataAsset` with stats, type tags, mesh references, and effect configs.
 - Equipment changes are replicated for co-op via `UPROPERTY(Replicated)` on `UEquipmentComponent`.
 - **Item Burn**: converts item to time currency at 25% item value. Implemented as a context action on any inventory slot.
+  
+![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5da280e17d293d889b79b6b18ec71fd02b549018.800x600.jpg)
 
 ---
 
