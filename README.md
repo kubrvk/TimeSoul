@@ -1,19 +1,21 @@
 # TIME SOUL
 
-> **Souls-like action platformer** — Unreal Engine 5.1 · C++ · Solo Development  
-> [Steam Page](https://store.steampowered.com/app/2928270/TIME_SOUL) · [ArtStation](https://www.artstation.com/kubrik)
+<img align="left" width="50%" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/7892565cfcc766ed30ac1692a887a7e3f544b703/library_header.jpg?t=1731513472"/>
+<h3><a href="https://github.com/kubrvk/TimeSoul">1-) TIME SOUL</a> <a href="https://store.steampowered.com/app/2928270/TIME_SOUL/"><img src="https://img.shields.io/badge/Steam: https://store.steampowered.com/app/2928270/TIME_SOUL-000000?style=flat-square&logo=steam&logoColor=white" height="25"/> </a></h3>
 
-![image](https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/7892565cfcc766ed30ac1692a887a7e3f544b703/library_header.jpg?t=1731513472)
+![](https://img.shields.io/badge/Action-a13636?style=) ![](https://img.shields.io/badge/Souls--like-a17736?style=) ![](https://img.shields.io/badge/Parkour-33488d?style=) ![C++](https://img.shields.io/badge/C++-00599C?style=logo=c%2B%2B&logoColor=white)  ![C++](https://img.shields.io/badge/Unreal_Engine_5.1-0E1128?style=for-the-badges&logo=unrealengine&logoColor=white)  ![C++](https://img.shields.io/badge/Status-Shipped-success?style=for-the-badges) 
+<br>
+TIME SOUL is a souls-like action-platformer built entirely in Unreal Engine 5.1 using C++. The game features a generative world structure, a real-time countdown resource system(timeas health), multi-layered parkour movement, and a hybrid class framework.
 
-## Overview
-
-TIME SOUL is a souls-like action-platformer built entirely in Unreal Engine 5.1 using C++. The game features a generative world structure, a real-time countdown resource system (time-as-health), multi-layered parkour movement, and a hybrid melee/ranged combat framework. All gameplay systems, 3D assets, shaders, UI, and tooling were developed by a single developer.
-
-The game ships on PC (Windows/Linux) via Steam. The core design challenge was integrating a persistent 60-minute global timer as the primary resource — governing leveling, ability usage, death penalty, and world progression — while maintaining responsive, frame-accurate combat and traversal.
+The game ships on PC (Windows/Linux) via Steam. The core design challenge was integrating a persistent 60-minute global timer as the primary resource , governing leveling, ability usage, death penalty, and world progression , while maintaining responsive, frame-accurate combat and traversal.
+<br clear="left"/>
+<p align="center">
+<img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5e5adf2391616e017a65df159088f682db3acefd.800x600.jpg" width="25%"/><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_9c2181850a7147b47d3e10dfa693be97a084799b.800x600.jpg" width="25%"/><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5da280e17d293d889b79b6b18ec71fd02b549018.800x600.jpg" width="25%"/><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_3e5a805e4134ec1816939b3d360962a3b9411569.1920x1080.jpg?t=1773568111" width="25%"/>
+</p>
 
 ---
 
-## Engine & Technical Stack
+## Technical Details
 
 | Layer | Technology |
 |---|---|
@@ -21,7 +23,7 @@ The game ships on PC (Windows/Linux) via Steam. The core design challenge was in
 | Primary Language | C++ (gameplay, AI, systems) |
 | Scripting / Prototyping | Unreal Blueprint (visual scaffolding only) |
 | Rendering | Lumen (GI), Nanite (static meshes), custom post-process materials |
-| Physics | Chaos Physics — used for gravity manipulation, climbing normals, hook swing |
+| Physics | Chaos Physics , used for gravity manipulation, climbing normals, hook swing |
 | Platform | PC (Win64/Linux), Steam SDK |
 | 3D Pipeline | ZBrush → Maya → Substance Painter → UE5 |
 | Shader Authoring | UE Material Editor + HLSL custom nodes |
@@ -61,7 +63,7 @@ TimeSoul/
 
 ### 1. Time Resource System
 
-The central design pillar of TIME SOUL is treating time as the universal resource — replacing conventional health/mana bars. This is implemented via a global `UTimeManagerComponent`.
+The central design pillar of TIME SOUL is treating time as the universal resource , replacing conventional health/mana bars. This is implemented via a global `UTimeManagerComponent`.
 
 **Design:**
 - Session is capped at 3600 seconds (60 minutes). The global timer decrements in real-time.
@@ -79,7 +81,7 @@ The central design pillar of TIME SOUL is treating time as the universal resourc
 
 **Death Penalty:**
 - Default: -300 seconds on death. Timer pickups appear at death location (reclaim window).
-- `TimelessMode`: if session timer reaches 0, world-end sequence triggers — `GameMode` broadcasts `OnWorldEnd` delegate, triggering a final boss encounter and end-state.
+- `TimelessMode`: if session timer reaches 0, world-end sequence triggers , `GameMode` broadcasts `OnWorldEnd` delegate, triggering a final boss encounter and end-state.
 
 **Clockworks:**
 - Static structures located above each planet. On approach, player is teleported to last active Clockwork (5-min cost). On death with no time remaining, auto-return in 60 seconds.
@@ -130,7 +132,7 @@ Parkour movement is implemented as a `UMovementExtensionComponent` extending `UC
 | **Gravity Climb** | Surface normal detection via sphere sweep; re-orients character capsule to surface normal using `FQuat::Slerp`; works on angled geometry |
 | **Gravity Hook** | Physics impulse-based pull toward target actor; 1-minute time cost per activation; target detection via sphere trace with `ECC_GameTraceChannel` |
 | **Bunny Hop** | Jump buffering within a frame window; successive hops accumulate speed up to a capped velocity |
-| **Star Surf** | Speed and time bonus on angled surfaces — slope angle evaluated via dot product against world up; bonus scales linearly with angle delta |
+| **Star Surf** | Speed and time bonus on angled surfaces , slope angle evaluated via dot product against world up; bonus scales linearly with angle delta |
 | **Angel Mode** | Flight + sonic dash; activates time drain at ×10 rate; costs 5 minutes on entry; max concurrent activations governed by Dark Clock modifier |
 
 **Character Movement Override (key excerpt):**
@@ -163,7 +165,7 @@ Combat is built on a dual-mode framework: **Melee (right-hand)** and **Ranged (l
 **Weapon & Slot Architecture:**
 - `FWeaponSlot` struct stores weapon asset reference, attack montage array, damage profile, and type tag (`Melee` / `Ranged` / `Magic`).
 - Weapon switching triggers a blended animation transition via `UAnimMontage` with a slot-specific blend mask.
-- Shields only equip alongside one-handed weapons — enforced via `EWeaponHoldType` enum check at equip time.
+- Shields only equip alongside one-handed weapons , enforced via `EWeaponHoldType` enum check at equip time.
 
 **Attack Chain (Combo System):**
 - Combo sequences are authored as ordered `TArray<UAnimMontage*>` per weapon.
@@ -173,7 +175,7 @@ Combat is built on a dual-mode framework: **Melee (right-hand)** and **Ranged (l
 **Stagger System:**
 - Each enemy and the player has a `FStaggerState` struct tracking `CurrentStagger` and `MaxStagger`.
 - Hits accumulate stagger. On threshold breach: stagger animation plays, brief control lock applied, stagger resets.
-- **Guard-Parry**: blocking within a defined input window on enemy attack triggers a parry — applies full stagger to attacker, no damage taken.
+- **Guard-Parry**: blocking within a defined input window on enemy attack triggers a parry , applies full stagger to attacker, no damage taken.
 
 ```cpp
 void UCombatComponent::ApplyStagger(float StaggerAmount)
@@ -203,7 +205,7 @@ void UCombatComponent::ApplyStagger(float StaggerAmount)
 
 **Cosmic Bullets:**
 - Ranged projectiles with a random roll per-hit: either deal standard damage or steal time from target.
-- Implemented via `FGameplayTagContainer` on projectile — hit behavior resolved at `UProjectileComponent::OnHit`.
+- Implemented via `FGameplayTagContainer` on projectile , hit behavior resolved at `UProjectileComponent::OnHit`.
 
 ---
 
@@ -254,8 +256,8 @@ Boss behaviors are implemented as hierarchical state machines using Unreal's Beh
 
 Each boss (`ABossCharacter`) has:
 - **Phase transitions**: health/time thresholds trigger `OnPhaseChange` delegate; new BT subtree injected dynamically.
-- **Bullet-hell patterns**: spawned via `ABulletPatternActor` — pattern definitions stored in data assets (`FBulletPatternConfig`), with configurable projectile count, spread, rotation speed, and time-steal probability per projectile.
-- **Randomized variants**: boss stats, pattern sets, and cosmetic variants are selected from seeded tables at spawn — no two runs present identical bosses.
+- **Bullet-hell patterns**: spawned via `ABulletPatternActor` , pattern definitions stored in data assets (`FBulletPatternConfig`), with configurable projectile count, spread, rotation speed, and time-steal probability per projectile.
+- **Randomized variants**: boss stats, pattern sets, and cosmetic variants are selected from seeded tables at spawn , no two runs present identical bosses.
 - **5 Time Guardian bosses**, each affiliated with one Clock type; defeated guardian drops corresponding Clock.
 
 ---
@@ -263,13 +265,13 @@ Each boss (`ABossCharacter`) has:
 ### 8. Damage & Defense Model
 
 **Three damage types:**
-- `Physical` — reduced by armor percentage
-- `Magic` — partially evaded; evasion stat reduces effective incoming magic damage
-- `Time` — bypasses armor; directly deducts from global timer on hit
+- `Physical` , reduced by armor percentage
+- `Magic` , partially evaded; evasion stat reduces effective incoming magic damage
+- `Time` , bypasses armor; directly deducts from global timer on hit
 
 **Defense:**
 - Armor applies flat percentage reduction to physical damage.
-- Evasion stat provides a chance to fully negate time-based attacks (not physical dodge — a passive resistance stat).
+- Evasion stat provides a chance to fully negate time-based attacks (not physical dodge , a passive resistance stat).
 
 **Critical Hit System:**
 - `CritRate` stat governs crit probability per hit.
@@ -327,7 +329,7 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 | Developer count | 1 (solo) |
 | Engine | Unreal Engine 5.1 |
 | Languages | C++, HLSL (custom shader nodes) |
-| 3D Assets | All original — modeled, textured, rigged, animated by developer |
+| 3D Assets | All original , modeled, textured, rigged, animated by developer |
 | Total items | 300+ |
 | Weapons | 50+ |
 | Gameplay systems | 12+ discrete systems (see above) |
@@ -352,13 +354,13 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 | [Olympus of the Heavens](https://store.steampowered.com/app/3358020/Olympus_of_the_Heavens) | Isometric co-op ARPG; procedural gen, Steam co-op networking, crafting |
 | [Blood Garden](https://kubrik.itch.io/bloodgarden) | Souls-like melee combat; stamina system, parry, enemy AI |
 | [Royal Jump](https://play.google.com/store/apps/details?id=com.Kubrick.RoyalJump) | Mobile platformer; touch controls, physics movement, mobile perf optimization |
-| [ArtStation Portfolio](https://www.artstation.com/kubrik) | 3D modeling work — characters, creatures, props, environments |
+| [ArtStation Portfolio](https://www.artstation.com/kubrik) | 3D modeling work , characters, creatures, props, environments |
 
 ---
 
 ## Developer
 
-**Kubrik** — Developer & 3D Artist  
+**Kubrik** , Developer & 3D Artist  
 
 [Steam](https://store.steampowered.com/search/?developer=Kubrik) · [ArtStation](https://www.artstation.com/kubrik) 
 
