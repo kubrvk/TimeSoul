@@ -7,7 +7,7 @@
 <br>
 TIME SOUL is a souls-like action-platformer built entirely in Unreal Engine 5.1 using C++. The game features a generative world structure, a real-time countdown resource system(timeas health), multi-layered parkour movement, and a hybrid class framework.
 
-The game ships on PC (Windows/Linux) via Steam. The core design challenge was integrating a persistent 60-minute global timer as the primary resource , governing leveling, ability usage, death penalty, and world progression , while maintaining responsive, frame-accurate combat and traversal.
+The game ships on PC (Windows/ ) via Steam. The core design challenge was integrating a persistent 60-minute global timer as the primary resource , governing leveling, ability usage, death penalty, and world progression , while maintaining responsive, frame-accurate combat and traversal.
 <br clear="left"/>
 <p align="center">
 <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5e5adf2391616e017a65df159088f682db3acefd.800x600.jpg" width="25%"/><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_9c2181850a7147b47d3e10dfa693be97a084799b.800x600.jpg" width="25%"/><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_5da280e17d293d889b79b6b18ec71fd02b549018.800x600.jpg" width="25%"/><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2928270/ss_3e5a805e4134ec1816939b3d360962a3b9411569.1920x1080.jpg?t=1773568111" width="25%"/>
@@ -15,7 +15,7 @@ The game ships on PC (Windows/Linux) via Steam. The core design challenge was in
 
 ---
 
-## Technical Details
+## Technical Details:
 
 | Layer | Technology |
 |---|---|
@@ -24,13 +24,13 @@ The game ships on PC (Windows/Linux) via Steam. The core design challenge was in
 | Scripting / Prototyping | Unreal Blueprint (visual scaffolding only) |
 | Rendering | Lumen (GI), Nanite (static meshes), custom post-process materials |
 | Physics | Chaos Physics , used for gravity manipulation, climbing normals, hook swing |
-| Platform | PC (Win64/Linux), Steam SDK |
+| Platform | PC (Win64/ ), Steam SDK |
 | 3D Pipeline | ZBrush → Maya → Substance Painter → UE5 |
-| Shader Authoring | UE Material Editor + HLSL custom nodes |
+| Shader Authoring | UE Material Editor +   custom nodes |
 
 ---
 
-## Architecture Overview
+## Code Overview
 
 The codebase is structured around a component-driven architecture. Core systems are implemented as `UActorComponent` subclasses attached to the player `ACharacter`, with event-driven communication through delegates and a lightweight game event bus.
 
@@ -59,7 +59,7 @@ TimeSoul/
 
 ---
 
-## Core Systems: Technical Detail
+## Core Systems:
 
 ### 1. Time Resource System
 
@@ -326,22 +326,22 @@ The HUD centers on a radial clock widget mirroring the in-game stopwatch.
 
 | Category | Detail |
 |---|---|
-| Developer count | 1 (solo) |
+| Developer count | 1  |
 | Engine | Unreal Engine 5.1 |
-| Languages | C++, HLSL (custom shader nodes) |
+| Languages | C++,   (custom shader nodes) |
 | 3D Assets | All original , modeled, textured, rigged, animated by developer |
 | Total items | 300+ |
 | Weapons | 50+ |
 | Gameplay systems | 12+ discrete systems (see above) |
-| Platforms | PC Windows / Linux (Steam) |
-| Development tools | UE5 Editor, ZBrush, Maya, Blender, Substance Painter, Photoshop, After Effects |
+| Platforms | PC Windows / (Steam) |
+| Development tools | UE5 Editor, ZBrush, Maya, Blender, Substance Painter, Photoshop |
 
 ---
 
 ## Build & Platform Notes
 
 - Developed and shipped on UE 5.1. Not upgraded to later engine versions to preserve stability of shipped systems.
-- Linux shipping tested via cross-compilation toolchain; physics and movement behavior verified consistent cross-platform.
+-   shipping tested via cross-compilation toolchain; physics and movement behavior verified consistent cross-platform.
 - Mobile builds (iOS/Android) not in scope for this title; see [Royal Jump](https://play.google.com/store/apps/details?id=com.Kubrick.RoyalJump) for mobile-specific UE development.
 
 ---
